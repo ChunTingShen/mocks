@@ -10,6 +10,7 @@ import { Contact } from '../userModel';
 })
 export class ContactComponent {
 
+  isValid:boolean = false;
 
   form = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -22,6 +23,7 @@ export class ContactComponent {
 
   onSubmit() {
     if (this.form.valid){
+      this.isValid = true;
       console.log("Success!")
 
     }

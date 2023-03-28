@@ -1,16 +1,33 @@
 <app-navigator></app-navigator>
 
-<h1>Contact Us</h1>
+<section>
+    <h1>Contact Us</h1>
 
+    <form [formGroup]="form" (submit)="onSubmit()">
+        <label>Name: </label><br>
+        <input type="text" id="name" name="name" class="form-control" formControlName="name"><br>
+    
+        <label>Message:</label><br>
+        <input type="text" id="message" class="form-control" required minlength="10" formControlName="message"><br>
+    
+        <button mat-raised-button >Submit</button>
 
-<form [formGroup]="form" (submit)="onSubmit()">
-    <label>Name: </label><br>
-    <input type="text" id="name" class="form-control" formControlName="name"><br>
+        <div *ngIf="form.get('name')?.touched && form.invalid">
+            Name is required.
+        </div>
 
+        <div *ngIf="form.get('message')?.touched && form.invalid">
+            Message is required.
+        </div>
+        
+        <div *ngIf="form.get('message')?.hasError('minlength') && form.invalid">
+            Message should be more than 10 characters.
+        </div>
+        
 
-    <label>Message:</label><br>
-    <input type="text" id="message" class="form-control" required minlength="10" formControlName="message"><br>
+    </form>
+</section>
 
-
-    <button mat-button>Submit</button>
-</form>
+<div *ngIf="isValid">
+    <p>Success!</p>
+</div>
