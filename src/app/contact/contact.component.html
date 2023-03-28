@@ -1,0 +1,16 @@
+<app-navigator></app-navigator>
+
+<h1>Contact Us</h1>
+
+
+<form [formGroup]="form" (submit)="onSubmit()">
+    <label>Name: </label><br>
+    <input type="text" id="name" class="form-control" formControlName="name"><br>
+
+
+    <label>Message:</label><br>
+    <input type="text" id="message" class="form-control" required minlength="10" formControlName="message"><br>
+
+
+    <button mat-button>Submit</button>
+</form>

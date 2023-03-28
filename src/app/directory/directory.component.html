@@ -1,0 +1,29 @@
+
+<app-navigator></app-navigator>
+
+
+<h1>
+    CVS Users
+</h1>
+
+<div class="user-block" *ngFor="let item of list">
+
+    <div class="info-block">
+        <img src={{item.avatar}} alt="avator">
+
+    </div>
+
+    <div class="info-block">
+
+        <span>
+            {{item.first_name}}
+        </span>
+        <span>
+            {{item.last_name}}
+        </span>
+        <br>
+        <a href="mailto:{{item.email}}" >{{item.email}}</a>
+
+    
+    </div>
+</div>
